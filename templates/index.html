@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>KVStore</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+      $(document).ready(function(){
+      	$("#submit").click(function() {
+          var id = $('#input-id').val();
+      	  var type = $('input[name=action]:checked').val(); // GET, POST, PUT or DELETE?
+      	  var data = "";
+      	  if(type === "POST" || type === "PUT")
+      	    data = $('#input-data').val();
+          $.ajax({"url": "/people/"+id,
+	                "type": type,
+            		  "data": data,
+            		  "success": function(data) {
+                    $('#output').val(data);
+                  },
+          		   "datatype": "text"
+          });
+        });
+      });
+    </script>
+  </head>
+  <body>
+
+    <h2>Input:</h2>
+    <p>id: <input type="text" id="input-id" size="4"></p>
+    <p>json: <textarea rows="6" cols="50" id="input-data">{
+"name": "Bob",
+"age":"23"
+}</textarea></p>
+    <input type="radio" name="action" value="GET">List<br>
+    <input type="radio" name="action" value="POST">Create<br>
+    <input type="radio" name="action" value="GET">Read<br>
+    <input type="radio" name="action" value="PUT">Update<br>
+    <input type="radio" name="action" value="DELETE">Delete<br>
+    <input type="submit" value="Submit" id="submit">
+
+    <h2>Output:</h2>
+    <textarea rows="6" cols="50" id="output"> </textarea>
+
+    <h2>curl equivalent</h2>
+    <p>curl 127.0.0.1:5000/people/</p>
+    <p>curl 127.0.0.1:5000/people/0</p>
+    <p>curl -X POST 127.0.0.1:5000/people/ --data '{"aa":"tutu"}'</p>
+    <p>curl -X PUT 127.0.0.1:5000/people/0 --data '{"bb":"titi"}'</p>
+    <p>curl -X DELETE 127.0.0.1:5000/people/0</p>
+
+  </body>
+</html>
