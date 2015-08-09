@@ -9,7 +9,7 @@ It does support the following commands:
  * curl -X DELETE 127.0.0.1:5000/people/0
 
 To build the docker:
- sudo docker build -t <yourdockerid>/peoplestore
+ * sudo docker build -t sroy/peoplestore
 
 To run it:
- sudo docker run -d -p 5000:80 <yourdockerid>/peoplestore
+ * sudo docker run -d -p 5000:80 sroy/peoplestore
