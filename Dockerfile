@@ -1,4 +1,4 @@
-FROM python:latest
+FROM python:2.7
 MAINTAINER Sylvain Roy "sylvain.roy@m4x.org"
 ENV REFRESHED_AT 09aug15
 
