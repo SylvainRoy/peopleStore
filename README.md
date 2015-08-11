@@ -11,5 +11,5 @@ It does support the following commands:
 The objective of the whole thing was to play with docker.
 To manually get the whole thing running:
  * sudo docker build -t sroy/peoplestore .
- * sudo docker run -d redis
+ * sudo docker run -d --name redis redis
  * sudo docker run -d -p 8080:8080 --name peoplestore --link redis:redis sroy/peoplestore
