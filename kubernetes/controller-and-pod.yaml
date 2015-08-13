@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: peoplestore
+spec:
+  replicas: 1
+  selector:
+    name: peoplestore
+  template:
+    metadata:
+      labels:
+        name: peoplestore
+    spec:
+      containers:
+      - name: redis
+        image: redis
+        ports:
+        - containerPort: 6379
+      - name: peoplestore
+        image: sroy/peoplestore
+        ports:
+        - containerPort: 8080
+        env:
+        - name: REDIS_PORT
+          value: tcp://localhost:6379
+

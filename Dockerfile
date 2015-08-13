@@ -10,4 +10,4 @@ RUN pip install -r /var/peoplestore/requirements.txt
 WORKDIR /var/peoplestore
 CMD python /var/peoplestore/app.py
 
-EXPOSE 8080
+EXPOSE 8000
