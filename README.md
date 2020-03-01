@@ -1,7 +1,7 @@
 This is a very basic key value store with a REST interface.
 It is implemented with Python, Flask and Redis.
 
-The objective of the whole thing was to play with docker, puppet, kubernetes and their friends.
+The objective of the whole thing is to play with docker, docker-compose, kubernetes and their friends.
 
 It does support the following commands:
  * curl 127.0.0.1:8000/people/
@@ -21,8 +21,5 @@ To do the same thing with docker-compose:
  * docker-compose up
 
 To do the same thing with kubernetes:
- * kubectl create -f ./kubernetes/controler_and_pod.yaml
+ * kubectl create -f ./kubernetes/controler-and-pod.yaml
  * kubectl create -f ./kubernetes/service.yaml
-(Then "kubectl get pods" to find the IP to use.)
-(Note, to get kubernetes running, you can [run in via dockers](http://kubernetes.io/v1.0/docs/getting-started-guides/docker.html).)
-
